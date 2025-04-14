@@ -36,6 +36,14 @@ public class StudentDAO {
         }
     }
     public static void updateStudent(String prn) throws SQLException {
-   
+        System.out.print("Enter new name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter new DoB: ");
+        String dob = sc.nextLine();
+        System.out.print("Enter new marks: ");
+        double marks = sc.nextDouble();
+        sc.nextLine();
+
+        String query = "UPDATE students SET name=?, dob=?, marks=? WHERE prn=?";
     } 
 }
