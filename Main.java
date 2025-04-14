@@ -48,6 +48,8 @@ public class Main {
                     default:
                         System.out.println("Invalid choice.");
                 }
+            }catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
             } // consume newline
     } 
 }
