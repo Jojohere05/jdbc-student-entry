@@ -23,4 +23,7 @@ public class StudentDAO {
             }
         }
     }
+    public static void searchByPRN(String prn) throws SQLException {
+    
+    }
 }
