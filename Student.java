@@ -9,4 +9,5 @@ public class Student {
         this.dob = dob;
         this.marks = marks;
     }
+    public String getPrn() { return prn; }
 }
