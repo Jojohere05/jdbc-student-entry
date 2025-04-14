@@ -10,4 +10,5 @@ public class Student {
         this.marks = marks;
     }
     public String getPrn() { return prn; }
+    public String getName() { return name; }
 }
