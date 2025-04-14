@@ -35,4 +35,7 @@ public class StudentDAO {
             }
         }
     }
+    public static void updateStudent(String prn) throws SQLException {
+   
+    } 
 }
