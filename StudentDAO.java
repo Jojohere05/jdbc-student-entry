@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class StudentDAO {
     static Scanner sc = new Scanner(System.in);
     public static void addStudent(Student student) throws SQLException {
-        String query = "INSERT INTO students (prn, name, dob, marks) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO students_info (prn, name, dob, marks) VALUES (?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
             pst.setString(1, student.getPrn());
             pst.setString(2, student.getName());
@@ -14,7 +14,7 @@ public class StudentDAO {
         }
     }
     public static void displayStudents() throws SQLException {
-        String query = "SELECT * FROM students";
+        String query = "SELECT * FROM students_info";
         try (Connection conn = DBConnection.getConnection(); Statement st = conn.createStatement()) {
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
@@ -24,7 +24,7 @@ public class StudentDAO {
         }
     }
     public static void searchByPRN(String prn) throws SQLException {
-        String query = "SELECT * FROM students WHERE prn=?";
+        String query = "SELECT * FROM students_info WHERE prn=?";
         try (Connection conn = DBConnection.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
             pst.setString(1, prn);
             ResultSet rs = pst.executeQuery();
@@ -44,7 +44,7 @@ public class StudentDAO {
         double marks = sc.nextDouble();
         sc.nextLine();
 
-        String query = "UPDATE students SET name=?, dob=?, marks=? WHERE prn=?";
+        String query = "UPDATE students_info SET name=?, dob=?, marks=? WHERE prn=?";
         try (Connection conn = DBConnection.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
             pst.setString(1, name);
             pst.setString(2, dob);
@@ -58,7 +58,7 @@ public class StudentDAO {
         } 
     } 
     public static void deleteStudent(String prn) throws SQLException {
-        String query = "DELETE FROM students WHERE prn=?";
+        String query = "DELETE FROM students_info WHERE prn=?";
         try (Connection conn = DBConnection.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
             pst.setString(1, prn);
             int rows = pst.executeUpdate();
