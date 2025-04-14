@@ -13,4 +13,5 @@ public class Student {
     public String getName() { return name; }
     public String getDob() { return dob; }
     public double getMarks() { return marks; }
+    public void setName(String name) { this.name = name; }
 }
