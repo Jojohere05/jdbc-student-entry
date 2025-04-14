@@ -24,6 +24,15 @@ public class StudentDAO {
         }
     }
     public static void searchByPRN(String prn) throws SQLException {
-    
+        String query = "SELECT * FROM students WHERE prn=?";
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, prn);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                System.out.println("Found: " + rs.getString("name") + ", " + rs.getString("dob") + ", " + rs.getDouble("marks"));
+            } else {
+                System.out.println("Student not found.");
+            }
+        }
     }
 }
