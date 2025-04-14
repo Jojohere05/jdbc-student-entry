@@ -45,5 +45,20 @@ public class StudentDAO {
         sc.nextLine();
 
         String query = "UPDATE students SET name=?, dob=?, marks=? WHERE prn=?";
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, name);
+            pst.setString(2, dob);
+            pst.setDouble(3, marks);
+            pst.setString(4, prn);
+            int rows = pst.executeUpdate();
+            if (rows > 0)
+                System.out.println("Student updated.");
+            else
+                System.out.println("Student not found.");
+        } 
     } 
+    public static void deleteStudent(String prn) throws SQLException {
+        String query = "DELETE FROM students WHERE prn=?";
+        
+    }
 }
