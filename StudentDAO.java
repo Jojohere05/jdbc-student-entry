@@ -13,4 +13,14 @@ public class StudentDAO {
             System.out.println("Student added successfully.");
         }
     }
+    public static void displayStudents() throws SQLException {
+        String query = "SELECT * FROM students";
+        try (Connection conn = DBConnection.getConnection(); Statement st = conn.createStatement()) {
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                System.out.println("PRN: " + rs.getString("prn") + ", Name: " + rs.getString("name")
+                        + ", DoB: " + rs.getString("dob") + ", Marks: " + rs.getDouble("marks"));
+            }
+        }
+    }
 }
