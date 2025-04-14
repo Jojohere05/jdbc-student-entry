@@ -12,4 +12,5 @@ public class Student {
     public String getPrn() { return prn; }
     public String getName() { return name; }
     public String getDob() { return dob; }
+    public double getMarks() { return marks; }
 }
