@@ -12,7 +12,43 @@ public class Main {
             System.out.println("6. Exit");
             System.out.print("Choose: ");
             int choice = sc.nextInt();
-            sc.nextLine();  // consume newline
+            sc.nextLine(); 
+            try {
+                switch (choice) {
+                    case 1:
+                        System.out.print("Enter PRN: ");
+                        String prn = sc.nextLine();
+                        System.out.print("Enter Name: ");
+                        String name = sc.nextLine();
+                        System.out.print("Enter DoB: ");
+                        String dob = sc.nextLine();
+                        System.out.print("Enter Marks: ");
+                        double marks = sc.nextDouble();
+                        sc.nextLine();
+                        Student s = new Student(prn, name, dob, marks);
+                        StudentDAO.addStudent(s);
+                        break;
+                    case 2:
+                        StudentDAO.displayStudents();
+                        break;
+                    case 3:
+                        System.out.print("Enter PRN: ");
+                        StudentDAO.searchByPRN(sc.nextLine());
+                        break;
+                    case 4:
+                        System.out.print("Enter PRN to update: ");
+                        StudentDAO.updateStudent(sc.nextLine());
+                        break;
+                    case 5:
+                        System.out.print("Enter PRN to delete: ");
+                        StudentDAO.deleteStudent(sc.nextLine());
+                        break;
+                    case 6:
+                        System.exit(0);
+                    default:
+                        System.out.println("Invalid choice.");
+                }
+            } // consume newline
     } 
 }
 }
