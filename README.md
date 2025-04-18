@@ -39,7 +39,7 @@ CREATE TABLE students (
     name VARCHAR(100) NOT NULL,
     age INT NOT NULL
 );
-
+---
 markdown
 Copy
 Edit
